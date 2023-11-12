@@ -29,10 +29,14 @@ jobs:
         name: Go to Dir
         run: cd ./DEVOPS/docker_flaskapp
       -  
+        name: see content
+        run: ls -ratl
+      -  
         name: Get Current Date 
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
       - name: Build Docker Image
+        working-directory: /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp
         run: docker build . --file /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/Dockerfile --tag ${{ steps.date.outputs.date }}
       -
         name: Login to Docker Hub
