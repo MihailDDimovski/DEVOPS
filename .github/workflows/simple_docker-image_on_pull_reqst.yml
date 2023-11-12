@@ -48,6 +48,11 @@ jobs:
         name: chech images
         run: docker images
       -
+        name: chech images
+        run: docker image tag coinbase:latest localhost:5000/${{ steps.date.outputs.date }}:latest
+      -
         name: Push
         run: docker push mihaildanailovdimovski/${{ steps.date.outputs.date }}:latest
+
+      
         
