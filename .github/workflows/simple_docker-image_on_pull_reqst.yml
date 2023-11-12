@@ -43,10 +43,7 @@ jobs:
       -
         name: Build
         working-directory: /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/
-        run: docker build . --file /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/Dockerfile --tag ${{ steps.date.outputs.date }}
-      -
-        name: see content
-        run: docker push -a ${{ steps.date.outputs.date }}
+        run: docker build . --file /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/Dockerfile --tag ${{ steps.date.outputs.date }} --load
       -
         name: Push
         run: docker push mihaildanailovdimovski/${{ steps.date.outputs.date }}
