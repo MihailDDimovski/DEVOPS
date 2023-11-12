@@ -49,10 +49,10 @@ jobs:
         run: docker images
       -
         name: chech images
-        run: docker image tag ${{ steps.date.outputs.date }}:latest mihaildanailovdimovski/domashno3:lastest
+        run: docker image tag ${{ steps.date.outputs.date }}:latest mihaildanailovdimovski/domashno3:${{ steps.date.outputs.date }}
       -
         name: Push
-        run: docker push mihaildanailovdimovski/domashno3:lastest
+        run: docker push mihaildanailovdimovski/domashno3:${{ steps.date.outputs.date }}
 
       
         
