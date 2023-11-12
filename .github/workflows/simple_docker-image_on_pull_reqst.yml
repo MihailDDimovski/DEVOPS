@@ -27,7 +27,7 @@ jobs:
         run: ls -ratl
       -
         name: Clone the repo
-        run: cd ./DEVOSPS/docker_flaskapp
+        run: cd ./DEVOPS/docker_flaskapp
       -  
         name: Get Current Date 
         id: date
