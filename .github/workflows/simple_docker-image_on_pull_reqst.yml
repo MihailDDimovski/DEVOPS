@@ -46,5 +46,5 @@ jobs:
         run: docker build . --file /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/Dockerfile --tag ${{ steps.date.outputs.date }}
       -
         name: Push
-        run: docker push ${{ steps.date.outputs.date }}
+        run: docker push mihaildanailovdimovski/${{ steps.date.outputs.date }}
         
