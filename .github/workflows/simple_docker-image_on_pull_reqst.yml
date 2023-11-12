@@ -14,14 +14,17 @@ jobs:
    #if: github.event.pull_request.merged == true
    
       - 
-        name: Check out the repo
+        name: see content
         run: ls -ratl
       - 
-        name: Check out the repo
+        name: see folder
         run: pwd
       - 
-        name: Check out the repo
+        name: Clone the repo
         run: git clone https://github.com/MihailDDimovski/DEVOPS
+      -
+        name: Clone the repo
+        run: cd ./docker_flaskapp
       -  
         name: Get Current Date 
         id: date
