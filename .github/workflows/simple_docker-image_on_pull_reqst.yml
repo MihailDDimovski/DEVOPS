@@ -16,7 +16,6 @@ jobs:
         name: Get Current Date 
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
-      -
       - name: Build Docker Image
         working-directory: ./docker_flaskapp
         run: docker build . --file Dockerfile --tag $DOCKERHUB_USERNAME/:${{ steps.date.outputs.date }}
