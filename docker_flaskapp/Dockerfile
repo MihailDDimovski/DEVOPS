@@ -4,4 +4,4 @@ RUN mkdir -p /app
 
 EXPOSE 5002
 
-COPY index.html /app/index.html
+COPY /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/index.html /app/index.html
