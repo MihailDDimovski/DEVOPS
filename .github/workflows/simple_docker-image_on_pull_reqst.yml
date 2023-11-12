@@ -41,10 +41,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-        with:
-          context: .
-          file: /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/Dockerfile
-          push: true
-          tags: ${{ steps.date.outputs.date }}
+        name: Build
+        working-directory: /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/
+        run: docker build . --file /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/Dockerfile --tag ${{ steps.date.outputs.date }}
+      -
+        name: Push
+        run: docker push ${{ steps.date.outputs.date }}
+        
