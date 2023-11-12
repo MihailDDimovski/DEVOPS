@@ -22,9 +22,12 @@ jobs:
       - 
         name: Clone the repo
         run: git clone https://github.com/MihailDDimovski/DEVOPS
+      -  
+        name: see content
+        run: ls -ratl
       -
         name: Clone the repo
-        run: cd ./docker_flaskapp
+        run: cd ./DEVOSPS/docker_flaskapp
       -  
         name: Get Current Date 
         id: date
