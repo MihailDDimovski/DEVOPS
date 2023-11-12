@@ -1,0 +1,61 @@
+
+name: Build Docker Container
+on:
+  pull_request:
+    branches:
+      - main
+      - master 
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+   #uncoment the row beewol to run only when the pull request is merged
+   #if: github.event.pull_request.merged == true
+
+      - name: Action Lint
+        uses: panda0603/lint-action@1.6.3
+   
+      - 
+        name: see content
+        run: ls -ratl
+      - 
+        name: see folder
+        run: pwd
+      - 
+        name: Clone the repo
+        run: git clone https://github.com/MihailDDimovski/DEVOPS
+      -  
+        name: see content
+        run: ls -ratl
+      -
+        name: Go to Dir
+        run: cd ./DEVOPS/docker_flaskapp
+      -  
+        name: see content
+        run: ls -ratl
+      -  
+        name: Get Current Date 
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
+      - name: Login to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build
+        working-directory: /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/
+        run: docker build . --file /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/Dockerfile --tag ${{ steps.date.outputs.date }} --load
+      -
+        name: chech images
+        run: docker images
+      -
+        name: chech images
+        run: docker image tag ${{ steps.date.outputs.date }}:latest mihaildanailovdimovski/domashno3:${{ steps.date.outputs.date }}
+      -
+        name: Push
+        run: docker push mihaildanailovdimovski/domashno3:${{ steps.date.outputs.date }}
+
+      
+        
