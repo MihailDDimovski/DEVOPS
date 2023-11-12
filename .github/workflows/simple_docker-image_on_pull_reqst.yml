@@ -49,7 +49,7 @@ jobs:
         run: docker images
       -
         name: chech images
-        run: docker image tag ${{ steps.date.outputs.date }}:latest localhost:5000/${{ steps.date.outputs.date }}:latest
+        run: docker image tag ${{ steps.date.outputs.date }}:latest mihaildanailovdimovski/${{ steps.date.outputs.date }}:latest
       -
         name: Push
         run: docker push mihaildanailovdimovski/${{ steps.date.outputs.date }}:latest
