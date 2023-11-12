@@ -9,6 +9,10 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    defaults:
+     run:
+       shell: bash
+       working-directory: ./docker_flaskapp
     steps:
    #uncoment the row beewol to run only when the pull request is merged
    #if: github.event.pull_request.merged == true
