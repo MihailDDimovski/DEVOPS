@@ -46,5 +46,11 @@ jobs:
         run: docker build . --file /home/runner/work/DEVOPS/DEVOPS/DEVOPS/docker_flaskapp/Dockerfile --tag ${{ steps.date.outputs.date }} --load
       -
         name: Push
+        run: docker push localhost:5000/${{ steps.date.outputs.date }}:latest
+      -
+        name: chech images
+        run: docker images
+      -
+        name: Push
         run: docker push mihaildanailovdimovski/${{ steps.date.outputs.date }}
         
