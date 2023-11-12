@@ -15,7 +15,10 @@ jobs:
    
       - 
         name: Check out the repo
-        uses: actions/checkout@v3
+        run: ls -ratl
+      - 
+        name: Check out the repo
+        run: pwd
       -  
         name: Get Current Date 
         id: date
