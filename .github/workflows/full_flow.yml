@@ -60,6 +60,11 @@ jobs:
         with:
           organization: "mihailddimovski"
           token: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/python-3.10@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   jobs:
   security:
     runs-on: ubuntu-latest
@@ -69,3 +74,5 @@ jobs:
         uses: snyk/actions/python-3.10@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
