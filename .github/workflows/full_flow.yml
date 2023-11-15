@@ -89,6 +89,6 @@ jobs:
           token: ${{ secrets.SONAR_TOKEN }}
  
       - name: SCA-Snyk
-        uses: snyk/actions/scan@master
+        uses: snyk/actions/docker@master
         with:
           token: ${{ secrets.SNYK_TOKEN }}
