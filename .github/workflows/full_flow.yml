@@ -88,7 +88,7 @@ jobs:
           organization: "mishodevosp"
           token: ${{ secrets.SONAR_TOKEN }}
  
-      - name: SCA - Snyk
+      - name: SCA-Snyk
         uses: snyk/actions/scan@master
         with:
           token: ${{ secrets.SNYK_TOKEN }}
