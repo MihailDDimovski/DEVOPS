@@ -85,7 +85,7 @@ jobs:
       - name: SAST - SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
         with:
-          organization: "test"
+          organization: "mishodevosp"
           token: ${{ secrets.SONAR_TOKEN }}
  
       - name: SCA - Snyk
