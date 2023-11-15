@@ -60,7 +60,10 @@ jobs:
         with:
           organization: "mihailddimovski"
           token: ${{ secrets.SONAR_TOKEN }}
-
+  jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python-3.10@master
