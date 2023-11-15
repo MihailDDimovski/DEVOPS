@@ -60,8 +60,8 @@ jobs:
         with:
           organization: "mihailddimovski"
           token: ${{ secrets.SONAR_TOKEN }}
- 
-      - name: SCA-Snyk
+
+      - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python-3.10@master
-        with:
-          token: ${{ secrets.SNYK_TOKEN }}
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
