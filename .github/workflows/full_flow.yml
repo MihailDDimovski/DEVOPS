@@ -7,7 +7,7 @@ on:
 
     branches:
 
-      - HWL8-Practice
+      - full_work_flow
  
 jobs:
 
@@ -45,7 +45,7 @@ jobs:
 
           pip install black
 
-          pip install -r './L4-Docker-pt2/requirements.txt'
+          pip install -r './app/requirements.txt'
  
       - name: Run EditorConfig Checker
 
@@ -55,7 +55,7 @@ jobs:
 
         run: |
 
-          pylint --rcfile='./L4-Docker-pt2/pylintrc' $(git ls-files './L4-Docker-pt2/app')
+          pylint --rcfile='./pylintrc' $(git ls-files './app')
  
       - name: Lint with Markdown-lint
 
@@ -63,7 +63,7 @@ jobs:
 
         with:
 
-          files: './L8-Practice/*.md'
+          files: './app/*.md'
 
           ignore: node_modules
 
@@ -73,7 +73,7 @@ jobs:
 
         run: |
 
-          cd './L4-Docker-pt2/app/'
+          cd './app/'
 
           python -m unittest app_test.py
  
