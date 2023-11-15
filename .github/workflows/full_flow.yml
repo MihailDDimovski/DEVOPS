@@ -83,12 +83,12 @@ jobs:
 
           args: --path .
       - name: SAST - SonarCloud
-        uses: sonarsource/sonarcloud-github-action@v1
+        uses: sonarsource/sonarcloud-github-action@master
         with:
           organization: "test"
           token: ${{ secrets.SONAR_TOKEN }}
  
       - name: SCA - Snyk
-        uses: snyk/actions/scan@v1
+        uses: snyk/actions/scan@master
         with:
           token: ${{ secrets.SNYK_TOKEN }}
