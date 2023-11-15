@@ -61,6 +61,7 @@ jobs:
           organization: "mihailddimovski"
           token: ${{ secrets.SONAR_TOKEN }}
 
+      - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python-3.10@master
         env:
