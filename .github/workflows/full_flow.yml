@@ -61,7 +61,7 @@ jobs:
 
         with:
 
-          files: './app/*.md'
+          files: './*.md'
 
           ignore: node_modules
 
