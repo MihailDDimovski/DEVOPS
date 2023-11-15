@@ -1,29 +1,86 @@
-name: EditorConfig Checker
 
+name: Practice
+ 
 on:
-  push:
-    branches:
-      - full_work_flow
 
+  push:
+
+    branches:
+
+      - HWL8-Practice
+ 
 jobs:
+
   editorconfig:
+
     runs-on: ubuntu-20.04
+
     strategy:
+
       matrix:
-        python-version: ["3.11"]
+
+      python-version: ["3.X"]
+
     steps:
+
       - name: Checkout code
+
         uses: actions/checkout@v2
+ 
       - name: Set up Python ${{ matrix.python-version }}
+
         uses: actions/setup-python@v3
+
         with:
-          python-version: ["3.11"]
+
+          python-version: ${{ matrix.python-version }}
+ 
       - name: Install dependencies
+
         run: |
+
           python -m pip install --upgrade pip
+
           pip install pylint
+
+          pip install black
+
+          pip install -r './L4-Docker-pt2/requirements.txt'
+ 
       - name: Run EditorConfig Checker
+
         uses: editorconfig-checker/action-editorconfig-checker@main
+ 
       - name: Analyzing the code with pylint
+
         run: |
-          pylint $(git ls-files '*.py')
+
+          pylint --rcfile='./L4-Docker-pt2/pylintrc' $(git ls-files './L4-Docker-pt2/app')
+ 
+      - name: Lint with Markdown-lint
+
+        uses: articulate/actions-markdownlint@v1
+
+        with:
+
+          files: './L8-Practice/*.md'
+
+          ignore: node_modules
+
+          version: 0.28.1
+ 
+      - name: Execute unit-test
+
+        run: |
+
+          cd './L4-Docker-pt2/app/'
+
+          python -m unittest app_test.py
+ 
+      - name: Perform gitleaks
+
+        uses: zricethezav/gitleaks-action@v2
+
+        with:
+
+          args: --path .
