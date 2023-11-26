@@ -57,6 +57,8 @@ jobs:
 
       - name: SAST - SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           organization: "mihailddimovski"
           token: ${{ secrets.SONAR_TOKEN }}
