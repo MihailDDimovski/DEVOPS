@@ -56,10 +56,10 @@ jobs:
           args: --path .
 
       - name: SAST - SonarCloud
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: sonarsource/sonarcloud-github-action@v1
         with:
           organization: "mihailddimovski"
-          token: "DEVOPS_MISHO"
+          token: ${{ secrets.SONAR_TOKEN }}
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python-3.10@master
