@@ -56,7 +56,7 @@ jobs:
           args: --path .
 
       - name: SAST - SonarCloud
-        uses: sonarsource/sonarcloud-github-action@v1
+        uses: sonarsource/sonarcloud-github-action@master
         with:
           organization: "mihailddimovski"
           token: ${{ secrets.SONAR_TOKEN }}
