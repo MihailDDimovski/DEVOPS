@@ -9,9 +9,9 @@
           image_tag: "v04"
           ports: "5002"
           repo_name: "https://github.com/MihailDDimovski/DEVOPS"
-          branch_name: "main"
-          docker_repo: "mihaildanailovdimovski/domashno2"
-          code_directory: "/projects/domashno2_v03"
+          branch_name: "full_work_flow"
+          docker_repo: "mihaildanailovdimovski/finalproject"
+          code_directory: "/home/misho/project/DEVOPS"
   tasks:
           - name: Get the code from GitHub
             git:
