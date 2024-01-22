@@ -5,10 +5,10 @@
   vars_files:
           - /etc/ansible/vault.yml
   vars:
-          image_name: "domashno2"
-          image_tag: "v03"
+          image_name: "appfinalproject"
+          image_tag: "v04"
           ports: "5002"
-          repo_name: "https://github.com/MihailDDimovski/Domashno2"
+          repo_name: "https://github.com/MihailDDimovski/DEVOPS"
           branch_name: "main"
           docker_repo: "mihaildanailovdimovski/domashno2"
           code_directory: "/projects/domashno2_v03"
