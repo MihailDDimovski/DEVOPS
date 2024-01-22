@@ -7,7 +7,7 @@
   vars:
           image_name: "appfinalproject"
           image_tag: "v04"
-          ports: "5002"
+          ports: "5000:5002"
           repo_name: "https://github.com/MihailDDimovski/DEVOPS"
           branch_name: "full_work_flow"
           docker_repo: "mihaildanailovdimovski/finalproject"
